@@ -11,12 +11,25 @@ const refs = {
 }
 
 // refs.createEl.addEventListener('click',createBoxes );
-refs.inputEl.addEventListener('input', (event) => {
-  const amount = event.currentTarget.value;
+
+refs.createEl.addEventListener('click', (e) => {
+  createBoxes(refs.inputEl.value)
+ 
+});
   
-  refs.createEl.addEventListener('click', (e) => {
-    createBoxes(amount);
-    function createBoxes(amount) {
+refs.destroyEl.addEventListener('click', (event) => {
+  destroyBoxes();
+  // refs.inputEl.textContent = ' ';
+})
+ 
+
+
+ 
+function destroyBoxes() {
+   refs.boxForElements.innerHTML = ' ';
+}
+
+   function createBoxes(amount) {
       let width = 60;
       for (let i = 0; i < amount; i += 1){
 
@@ -24,19 +37,6 @@ refs.inputEl.addEventListener('input', (event) => {
         width -= 10;
     };
   };
-  });
-  destroyBoxes();
-})
-
-refs.destroyEl.addEventListener('click', (event) => {
-  destroyBoxes();
- 
-  
-}) 
- 
-function destroyBoxes() {
-   refs.boxForElements.innerHTML = ' ';
-}
 
     
 
