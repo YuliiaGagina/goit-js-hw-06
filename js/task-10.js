@@ -10,35 +10,31 @@ const refs = {
   boxForElements: document.querySelector('[id="boxes"]'),
 }
 
-// refs.createEl.addEventListener('click',createBoxes );
-
 refs.createEl.addEventListener('click', (e) => {
-  createBoxes(refs.inputEl.value)
- 
+  createBoxes(refs.inputEl.value);
+
+  
 });
   
 refs.destroyEl.addEventListener('click', (event) => {
   destroyBoxes();
-  // refs.inputEl.textContent = ' ';
-})
- 
-
+});
 
  
+function createBoxes(amount) {
+   let width = 60;
+for (let i = 0; i < amount; i += 1){  
+    
+  refs.boxForElements.innerHTML +=  `<div style="width:${width}px;height:${width}px;background-color:${getRandomHexColor()};"></div>`;
+  width += 10;
+};
+};
+
 function destroyBoxes() {
-   refs.boxForElements.innerHTML = ' ';
+    refs.boxForElements.innerHTML = ' ';
+    refs.inputEl.value = '';
+   
 }
 
-   function createBoxes(amount) {
-      let width = 60;
-      for (let i = 0; i < amount; i += 1){
-
-      refs.boxForElements.insertAdjacentHTML('afterbegin', `<div style="width:${width}px;height:${width}px;background-color: ${getRandomHexColor()};"></div>`);
-        width -= 10;
-    };
-  };
-
-    
 
 
-// немного запуталась нужна помощь)
